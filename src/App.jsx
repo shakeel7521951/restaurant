@@ -4,6 +4,7 @@ import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Menu from "./pages/Menu";
 
 const MainFunction = () => {
   return (
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/menu", element: <Menu /> },
     ],
   },
 ]);
