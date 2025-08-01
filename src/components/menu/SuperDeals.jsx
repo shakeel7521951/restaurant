@@ -33,6 +33,14 @@ const dealsData = [
     discount: "$12 OFF UP TO $90",
     image: "./menu/product-15-min-312x180.jpg",
   },
+  {
+    id: 5,
+    title: "Veggie Delight",
+    category: "Vegetarian",
+    price: "$11 - $15",
+    discount: "$12 OFF UP TO $90",
+    image: "./menu/product-15-min-312x180.jpg",
+  },
 ];
 
 const SuperDeals = () => {
