@@ -1,0 +1,42 @@
+.btn{
+    padding: 10px 10px ;
+    border-radius: 30px;
+    border: 1px solid #FF2056;
+    overflow: hidden;
+    color:black;
+    position: relative;
+    display: flex;
+    justify-content: center ;
+    background: transparent;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    transition: 0.5s;
+    font-weight: 600;
+    color:#FF2056;
+    cursor: pointer;
+    
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    transform:  rotate(8deg);
+    height: 0;
+    background-color: #FF2056;
+    transition: 0.5s;
+    
+
+}
+.btn:hover::before{
+    height: 100%;
+    
+    
+    
+}
+.btn:hover{
+    color: white;
+}
