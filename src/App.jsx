@@ -1,15 +1,11 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-<<<<<<< HEAD
-import "./App.css"
-=======
 import Menu from "./pages/Menu";
+import Footer from "./components/common/Footer";
 
->>>>>>> 8b23f32ab95f70ec2ca69c8c71714269cef3e29a
 const MainFunction = () => {
   return (
     <div>
