@@ -3,9 +3,6 @@ import "./App.css";
 import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-
-import "./App.css"
-
 import Menu from "./pages/Menu";
 import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
@@ -31,6 +28,8 @@ const router = createBrowserRouter([
     element: <MainFunction />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/team", element: <Team /> },
       { path: "/contact", element: <Contact /> },
       { path: "/menu", element: <Menu /> },
       { path: "/login", element: <Login /> },
