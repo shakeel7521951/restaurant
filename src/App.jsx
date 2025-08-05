@@ -3,6 +3,9 @@ import "./App.css";
 import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+
+import "./App.css"
+
 import Menu from "./pages/Menu";
 import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
@@ -10,6 +13,7 @@ import Sign_Up from "./components/common/Sign_Up";
 import Reservation from "./components/common/Reservation";
 import Our_Business from "./components/common/Our_Business";
 import Faq from "./components/common/Faq";
+
 
 const MainFunction = () => {
   return (
