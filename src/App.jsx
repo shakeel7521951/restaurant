@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Contact from "../src/pages/Contact";
+import "./App.css"
 import Menu from "./pages/Menu";
 import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
@@ -11,6 +13,9 @@ import Reservation from "./components/common/Reservation";
 import Our_Business from "./components/common/Our_Business";
 import Faq from "./components/common/Faq";
 import Not_Found from "./components/common/Not_Found";
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./Blogs/BlogDetail";
+import AddToCart from "./pages/AddToCart";
 
 
 const MainFunction = () => {
@@ -36,7 +41,11 @@ const router = createBrowserRouter([
       { path: "/ourbusiness", element: <Our_Business /> },
       { path: "/faq", element: <Faq /> },
       { path: "/notfound", element: <Not_Found /> }
+      { path: "/blogs", element: <Blogs /> },
+      { path: "/blogDetail/:id", element: <BlogDetail /> },
+      { path: "/cart", element: <AddToCart /> },
     ],
+
   },
 ]);
 function App() {
