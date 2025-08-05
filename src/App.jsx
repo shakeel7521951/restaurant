@@ -13,6 +13,7 @@ import Sign_Up from "./components/common/Sign_Up";
 import Reservation from "./components/common/Reservation";
 import Our_Business from "./components/common/Our_Business";
 import Faq from "./components/common/Faq";
+import Not_Found from "./components/common/Not_Found";
 
 
 const MainFunction = () => {
@@ -36,7 +37,8 @@ const router = createBrowserRouter([
       { path: "/signup", element: <Sign_Up /> },
       { path: "/reservation", element: <Reservation /> },
       { path: "/ourbusiness", element: <Our_Business /> },
-      { path: "/faq", element: <Faq /> }
+      { path: "/faq", element: <Faq /> },
+      { path: "/notfound", element: <Not_Found /> }
     ],
   },
 ]);
