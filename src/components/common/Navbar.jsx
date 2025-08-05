@@ -92,11 +92,15 @@ const Navbar = () => {
             <h1 className="text-lg font-semibold">+92-1243-4567</h1>
           </div>
         </div>
-        <div className="btn group">
+     
+          <div className="btn  group">
           <span>
             <BsCart2 className="text-rose-400 group-hover:text-white" />
           </span>
+          
         </div>
+     
+     
         <div className="btn group ">
           <span>
             <HiMiniUserPlus className="text-rose-400 group-hover:text-white" />
