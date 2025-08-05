@@ -7,6 +7,7 @@ import Menu from "./pages/Menu";
 import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
 import Sign_Up from "./components/common/Sign_Up";
+import Reservation from "./components/common/Reservation";
 
 const MainFunction = () => {
   return (
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/menu", element: <Menu /> },
       { path: "/login", element: <Login /> },
-      { path: "/signup", element: <Sign_Up /> }
+      { path: "/signup", element: <Sign_Up /> },
+      { path: "/reservation", element: <Reservation /> }
     ],
   },
 ]);
