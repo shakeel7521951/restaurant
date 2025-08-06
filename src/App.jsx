@@ -11,6 +11,7 @@ import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
 import Sign_Up from "./components/common/Sign_Up";
 import Reservation from "./components/common/Reservation";
+import SuperDpg from "./pages/SuperDpg";
 
 
 const MainFunction = () => {
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
       { path: "/menu", element: <Menu /> },
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Sign_Up /> },
-      { path: "/reservation", element: <Reservation /> }
+      { path: "/reservation", element: <Reservation /> },
+      {path:"/superdetailpage",element:<SuperDpg/>}
     ],
   },
 ]);

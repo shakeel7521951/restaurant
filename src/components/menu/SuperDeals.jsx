@@ -1,62 +1,29 @@
 import { SlBasket } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
+import dealsData from "../../pages/SuperArray"
 
-const dealsData = [
-  {
-    id: 1,
-    title: "Choco Meal",
-    category: "Fast Food",
-    price: "$13 - $19",
-    discount: "$15 OFF UP TO $100",
-    image: "./menu/product-15-min-312x180.jpg",
-  },
-  {
-    id: 2,
-    title: "Spicy Burger",
-    category: "Burgers",
-    price: "$9 - $14",
-    discount: "$10 OFF UP TO $80",
-    image: "./menu/product-15-min-312x180.jpg",
-  },
-  {
-    id: 3,
-    title: "Veggie Delight",
-    category: "Vegetarian",
-    price: "$11 - $15",
-    discount: "$12 OFF UP TO $90",
-    image: "./menu/product-15-min-312x180.jpg",
-  },
-  {
-    id: 4,
-    title: "Veggie Delight",
-    category: "Vegetarian",
-    price: "$11 - $15",
-    discount: "$12 OFF UP TO $90",
-    image: "./menu/product-15-min-312x180.jpg",
-  },
-  {
-    id: 5,
-    title: "Veggie Delight",
-    category: "Vegetarian",
-    price: "$11 - $15",
-    discount: "$12 OFF UP TO $90",
-    image: "./menu/product-15-min-312x180.jpg",
-  },
-];
 
 const SuperDeals = () => {
+  const navigate = useNavigate();
+  const MovetoSuperD=(deal)=>{
+    navigate("/superdetailpage",{state:deal});
+
+  }
   return (
     <section className="container mx-auto    my-12 px-4 md:px-0">
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
         Super Delicious Deals
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
         {dealsData.map((deal) => (
           <article
             key={deal.id}
             className="max-w-sm mx-auto bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden group"
           >
-            <div className="overflow-hidden relative">
+            <div className="overflow-hidden cursor-pointer relative"
+            onClick={()=>MovetoSuperD(deal)}
+            >
               <img
                 src={deal.image}
                 alt={`${deal.title} - ${deal.category}`}

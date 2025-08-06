@@ -14,7 +14,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Navbar = () => {
   const navitem = [
-    { id: 1, name: "Home", path: "/home" },
+    { id: 1, name: "Home", path: "/" },
     { id: 2, name: "Menu", path: "/menu" },
     { id: 3, name: "Shop", path: "/shop" },
     { id: 4, name: "Pages", path: "/pages" },
@@ -50,7 +50,7 @@ const Navbar = () => {
   }, [first]);
 
   return (
-    <nav className="relative w-full px-2 sm:px-5 py-3 flex justify-between items-center shadow-sm ">
+    <nav className="relative w-full bg-rose-50 px-2 sm:px-5 py-3 flex justify-between items-center shadow-sm ">
       <div>
         <div>
           <Link>
@@ -61,13 +61,13 @@ const Navbar = () => {
       <div className="hidden xl:block">
         <ul className="flex gap-2 xl:gap-10 font-semibold text-md">
           {navitem.map((nav, id) => (
-            <Link to={nav.path}>
+            <Link >
               {" "}
               <li
                 key={nav.id}
                 className="flex gap-2 group relative list-none items-center"
               >
-                <Link>
+                <Link to={nav.path}>
                   <span className="hover:text-rose-400 transition">
                     {nav.name}
                   </span>
