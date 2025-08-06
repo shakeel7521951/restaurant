@@ -4,6 +4,13 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FaTelegramPlane, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+const FootrAry=[
+  {id:1,name:"Career",path:"/about"},
+  {id:2,name:"Teams",path:"/team"},
+  {id:3,name:"Foodymat Area",path:"/"},
+  {id:4,name:"Foodymat Instamat",path:"/team"},
+  {id:5,name:"Foodymat Genie",path:"/about"},
+]
 
 const Footer = () => {
   return (
@@ -47,10 +54,10 @@ const Footer = () => {
         <div className="ml-2">
           <h1 className="mb-10 font-semibold text-lg">Company Info</h1>
           <ul className="space-y-3">
-            {["Career", "Teams", "Foodymat Area", "Foodymat Instamat", "Foodymat Genie"].map(
-              (item, i) => (
-                <li key={i} className="text-sm text-gray-300 hover:text-white transition">
-                  <Link to="#">{item}</Link>
+          { FootrAry.map(
+              (item, id) => (
+                <li key={item.id} className="text-sm text-gray-300 hover:text-white transition">
+                  <Link to={item.path}>{item.name}</Link>
                 </li>
               )
             )}
