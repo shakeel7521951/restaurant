@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiScooter } from "react-icons/gi";
 import { BsCart2 } from "react-icons/bs";
@@ -11,19 +11,38 @@ import { PiPhoneCallLight } from "react-icons/pi";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
+import { TbLibraryPlus } from "react-icons/tb";
+import { TbCopyMinus } from "react-icons/tb";
 
 const Navbar = () => {
+  const location = useLocation();
+  const [activePage, setActivePage] = useState(location.pathname);
+  const [expandedMenu, setExpandedMenu] = useState(null);
+
   const navitem = [
     { id: 1, name: "Home", path: "/" },
     { id: 2, name: "Menu", path: "/menu" },
-    { id: 3, name: "Shop", path: "/shop" },
-    { id: 4, name: "Pages", path: "/pages" },
-    { id: 5, name: "Blog", path: "/blog" },
+    { id: 3, name: "Shop", path: "/team" },
+    { id: 4, name: "Pages", path: "/about" },
+    { id: 5, name: "Blog", path: "/blogs" },
     { id: 6, name: "Contact", path: "/contact" },
   ];
 
+  // Arrays for dropdown content
+  const menuAry = [
+    { id: 1, name: "Cart", path: "/cart" },
+  ];
+
+  const pageAry = [
+    { id: 1, name: "About", path: "/about" },
+    { id: 2, name: "Team", path: "/team" },
+    { id: 3, name: "Our Business", path: "/ourbusiness" },
+    { id: 4, name: "FAQ", path: "/faq" },
+    { id: 5, name: "404 Page", path: "/notfound" }
+  ];
+
   const [first, setfirst] = useState(false);
-  const sidebarRef = useRef(null); // ✅ useRef for sidebar
+  const sidebarRef = useRef(null);
 
   const handlemenu = () => {
     setfirst(true);
@@ -31,7 +50,20 @@ const Navbar = () => {
 
   const hanldecross = () => {
     setfirst(false);
+    setExpandedMenu(null);
   };
+
+  const toggleMenu = (id) => {
+    if (expandedMenu === id) {
+      setExpandedMenu(null);
+    } else {
+      setExpandedMenu(id);
+    }
+  };
+
+  useEffect(() => {
+    setActivePage(location.pathname);
+  }, [location]);
 
   useEffect(() => {
     const handleClickoutside = (event) => {
@@ -50,33 +82,58 @@ const Navbar = () => {
   }, [first]);
 
   return (
-    <nav className="relative w-full bg-rose-50 px-2 sm:px-5 py-3 flex justify-between items-center shadow-sm ">
+    <nav className="relative w-full bg-rose-50 px-2 sm:px-5 py-3 flex justify-between items-center shadow-sm">
       <div>
         <div>
-          <Link>
+          <Link to="/">
             <img src="/Navbar/logo.svg" alt="" />
           </Link>
         </div>
       </div>
       <div className="hidden xl:block">
         <ul className="flex gap-2 xl:gap-10 font-semibold text-md">
-          {navitem.map((nav, id) => (
-            <Link >
-              {" "}
-              <li
-                key={nav.id}
-                className="flex gap-2 group relative list-none items-center"
-              >
+          {navitem.map((nav) => (
+            <li key={nav.id} className="group relative">
+              <div className="flex items-center gap-1">
                 <Link to={nav.path}>
-                  <span className="hover:text-rose-400 transition">
+                  <span className={`hover:text-rose-400 transition ${activePage === nav.path ? 'text-rose-400' : ''}`}>
                     {nav.name}
                   </span>
                 </Link>
-
-                {/* Underline animation */}
-                <div className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-rose-400 group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></div>
-              </li>
-            </Link>
+                {(nav.name === "Shop" || nav.name === "Pages") && (
+                  <IoIosArrowDown className="text-xs" />
+                )}
+              </div>
+              
+              {/* Underline animation */}
+              <div className={`absolute -bottom-1 left-1/2 h-[2px] bg-rose-400 transition-all duration-300 transform -translate-x-1/2 ${activePage === nav.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></div>
+              
+              {/* Dropdown for Shop */}
+              {nav.name === "Shop" && (
+                <div className="absolute top-full left-0 z-50 px-5 py-3 text-black shadow-sm bg-white hidden group-hover:block rounded-md">
+                  <ul className="whitespace-nowrap space-y-2">
+                    {menuAry.map((item) => (
+                      <li key={item.id} className="text-sm hover:underline text-black">
+                        <Link to={item.path}>{item.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {/* Dropdown for Pages */}
+              {nav.name === "Pages" && (
+                <div className="absolute top-full left-0 z-50 px-5 py-3 text-black shadow-sm bg-white hidden group-hover:block rounded-md">
+                  <ul className="whitespace-nowrap space-y-2">
+                    {pageAry.map((item) => (
+                      <li key={item.id} className="text-sm hover:underline text-black">
+                        <Link to={item.path}>{item.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
           ))}
         </ul>
       </div>
@@ -93,24 +150,28 @@ const Navbar = () => {
           </div>
         </div>
      
-          <div className="btn  group">
-          <span>
-            <BsCart2 className="text-rose-400 group-hover:text-white" />
-          </span>
-          
+        <div className="btn group">
+          <Link to="/cart">
+            <span>
+              <BsCart2 className="text-rose-400 group-hover:text-white" />
+            </span>
+          </Link>
         </div>
      
-     
-        <div className="btn group ">
-          <span>
-            <HiMiniUserPlus className="text-rose-400 group-hover:text-white" />
-          </span>
+        <div className="btn group">
+          <Link to="/login">
+            <span>
+              <HiMiniUserPlus className="text-rose-400 group-hover:text-white" />
+            </span>
+          </Link>
         </div>
         <div className="hidden xl:block">
-            <div className="btn  ">
-          <MdOutlineCalendarToday />
-          Reservation
-        </div>
+          <Link to="/reservation">
+            <div className="btn">
+              <MdOutlineCalendarToday />
+              Reservation
+            </div>
+          </Link>
         </div>
         <div className="cursor-pointer xl:hidden">
           <span onClick={handlemenu}>
@@ -119,13 +180,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* <!-- ========== Start mobile  Section ========== --> */}
+      {/* Mobile Section */}
       {first && (
         <div
-          ref={sidebarRef} // ✅ useRef attached
+          ref={sidebarRef}
           className="absolute xl:hidden z-10 border-r border-gray-200 top-0 min-h-screen p-5 w-full sm:w-[45%] shadow-md bg-white left-0 fixed overflow-y-auto"
         >
-          <div className="flex items-center justify-between gap-4 ">
+          <div className="flex items-center justify-between gap-4">
             <div>
               <img src="/Navbar/logo.svg" alt="" />
             </div>
@@ -138,24 +199,66 @@ const Navbar = () => {
           </div>
           <div className="mt-10">
             <ul className="font-semibold items-center list-none group relative">
-               {navitem.map((nav, id) => (
-            <Link to={nav.path}>
-              {" "}
-              <li
-                key={nav.id}
-                className="flex gap-2 group relative list-none items-center"
-              >
-                <Link>
-                  <span className="hover:text-rose-400 transition">
-                    {nav.name}
-                  </span>
-                </Link>
+              {navitem.map((nav) => (
+                <li key={nav.id} className="mb-4">
+                  <div className="flex justify-between items-center">
+                    <Link 
+                      to={nav.path} 
+                      className={`hover:text-rose-400 transition ${activePage === nav.path ? 'text-rose-400' : ''}`}
+                      onClick={() => setActivePage(nav.path)}
+                    >
+                      {nav.name}
+                    </Link>
+                    {(nav.name === "Shop" || nav.name === "Pages") && (
+                      <button onClick={() => toggleMenu(nav.id)}>
+                        {expandedMenu === nav.id ? (
+                          <TbCopyMinus className="text-xl text-rose-600" />
+                        ) : (
+                          <TbLibraryPlus className="text-xl text-rose-600" />
+                        )}
+                      </button>
+                    )}
+                  </div>
 
-                {/* Underline animation */}
-                <div className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-rose-400 group-hover:w-full transition-all duration-300 transform -translate-x-1/2"></div>
-              </li>
-            </Link>
-          ))}
+                  {/* Shop dropdown in mobile */}
+                  {nav.name === "Shop" && expandedMenu === nav.id && (
+                    <div className="ml-4 mt-2">
+                      <ul className="space-y-2">
+                        {menuAry.map((item) => (
+                          <li key={item.id}>
+                            <Link 
+                              to={item.path} 
+                              className="text-sm hover:underline text-black"
+                              onClick={() => setActivePage(item.path)}
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Pages dropdown in mobile */}
+                  {nav.name === "Pages" && expandedMenu === nav.id && (
+                    <div className="ml-4 mt-2">
+                      <ul className="space-y-2">
+                        {pageAry.map((item) => (
+                          <li key={item.id}>
+                            <Link 
+                              to={item.path} 
+                              className="text-sm hover:underline text-black"
+                              onClick={() => setActivePage(item.path)}
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="mt-10">
@@ -186,7 +289,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-      {/* <!-- ========== End mobile  Section ========== --> */}
     </nav>
   );
 };
