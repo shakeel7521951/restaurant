@@ -4,7 +4,7 @@ import Navbar from "./components/common/Navbar";
 import Home from "./pages/Home";
 // import Contact from "./pages/Contact";
 import Contact from "../src/pages/Contact";
-import "./App.css"
+import "./App.css";
 import Menu from "./pages/Menu";
 import Footer from "./components/common/Footer";
 import Login from "./components/common/Login";
@@ -20,8 +20,6 @@ import AddToCart from "./pages/AddToCart";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import ForgotPasw from "./components/common/ForgotPasw";
-
-
 
 const MainFunction = () => {
   return (
@@ -41,9 +39,8 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/menu", element: <Menu /> },
       // { path: "/login", element: <Login /> },
-      
-      
-      {path:"/superdetailpage",element:<SuperDpg/>},
+
+      { path: "/superdetailpage", element: <SuperDpg /> },
       { path: "/reservation", element: <Reservation /> },
       { path: "/ourbusiness", element: <Our_Business /> },
       { path: "/faq", element: <Faq /> },
@@ -51,17 +48,14 @@ const router = createBrowserRouter([
       { path: "/blogs", element: <Blogs /> },
       { path: "/blogDetail/:id", element: <BlogDetail /> },
       { path: "/cart", element: <AddToCart /> },
-      {path:"/about",element:<About/>},
-      {path:"/team",element:<Team/>},
-      {path:"*",element:<Not_Found/>}
-     
+      { path: "/about", element: <About /> },
+      { path: "/team", element: <Team /> },
+      { path: "*", element: <Not_Found /> },
     ],
-    
-
   },
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <Sign_Up /> },
-  { path: "/forgotpassword", element: <ForgotPasw/> },
+  { path: "/forgotpassword", element: <ForgotPasw /> },
 ]);
 function App() {
   return <RouterProvider router={router} />;
