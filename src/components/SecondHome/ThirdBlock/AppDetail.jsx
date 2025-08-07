@@ -40,20 +40,18 @@ function AppDetail() {
         </div>
 
         {/* Description */}
-        {/* Description */}
-<div
-  className="text-[16px] text-white space-y-1 text-left"
-  style={{
-    fontFamily: "'Quicksand', sans-serif",
-    fontWeight: 400,
-    lineHeight: "1.6",
-  }}
->
-  <div>✔ Find the nearest restaurant</div>
-  <div>✔ Order food online</div>
-  <div>✔ Delivery food near me</div>
-</div>
-
+        <div
+          className="text-[16px] text-white space-y-1 text-left"
+          style={{
+            fontFamily: "'Quicksand', sans-serif",
+            fontWeight: 400,
+            lineHeight: "1.6",
+          }}
+        >
+          <div>✔ Find the nearest restaurant</div>
+          <div>✔ Order food online</div>
+          <div>✔ Delivery food near me</div>
+        </div>
 
         {/* Buttons (always in one line) */}
         <div className="flex flex-row justify-center sm:gap-3 mt-2">

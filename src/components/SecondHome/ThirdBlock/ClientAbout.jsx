@@ -31,7 +31,6 @@ const originalTestimonials = [
   },
 ];
 
-// Clone first and last slide for infinite looping
 const testimonials = [
   originalTestimonials[originalTestimonials.length - 1],
   ...originalTestimonials,
@@ -39,28 +38,26 @@ const testimonials = [
 ];
 
 function ClientAbout() {
-  const [current, setCurrent] = useState(1); // Start from 1 (real first)
+  const [current, setCurrent] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const [direction, setDirection] = useState("right"); // NEW
+  const [direction, setDirection] = useState("right");
   const [ref, isInView] = useInView();
 
   useEffect(() => {
     let timeout;
 
     if (current === testimonials.length - 1) {
-      // Moved to cloned first (after last real slide)
       timeout = setTimeout(() => {
-        setIsTransitioning(false); // disable animation
-        setCurrent(1); // jump to real first slide
+        setIsTransitioning(false);
+        setCurrent(1);
       }, 500);
     } else if (current === 0) {
-      // Moved to cloned last (before first real slide)
       timeout = setTimeout(() => {
-        setIsTransitioning(false); // disable animation
-        setCurrent(testimonials.length - 2); // jump to real last
+        setIsTransitioning(false);
+        setCurrent(testimonials.length - 2);
       }, 500);
     } else {
-      setIsTransitioning(true); // enable animation for regular slide
+      setIsTransitioning(true);
     }
 
     return () => clearTimeout(timeout);
@@ -170,7 +167,7 @@ function ClientAbout() {
           {originalTestimonials.map((_, index) => (
             <span
               key={index}
-              onClick={() => setCurrent(index + 1)} // +1 due to cloned first
+              onClick={() => setCurrent(index + 1)}
               className={`cursor-pointer transition-all duration-400 ${
                 current === index + 1
                   ? "w-8 h-3 bg-[#E9004B] rounded-full"

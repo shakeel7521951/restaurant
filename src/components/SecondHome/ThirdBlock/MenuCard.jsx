@@ -1,6 +1,8 @@
 // components/ProductCard.jsx
 import React, { useState } from "react";
 import "../styles/carousel.css";
+import "../styles/animation.css";
+import { Link } from "lucide-react";
 
 const categories = ["All", "Rice", "Chinese", "Burger", "Dinner"];
 
@@ -130,22 +132,30 @@ function MenuCard() {
         {filteredItems.map((item) => (
           <div
             key={`${item.id}-${selected}`} // 👈 This makes the key unique on every filter change
-    className="w-full sm:w-[410px] bg-white p-[20px] flex items-center rounded-xl transition-all duration-500 transform hover:scale-[1.01] animate-fade-in"
+            className="group w-full sm:w-[410px] bg-white p-[20px] flex items-center rounded-xl transition-all duration-500 transform hover:scale-[1.01] animate-fade-in"
           >
             {/* Image */}
-            <div className="w-[140px] sm:w-[200px] h-[90px] sm:h-[110px] mr-4 sm:mr-5">
+            <div className="w-[140px] sm:w-[200px] h-[90px] sm:h-[115px] mr-4 sm:mr-5 overflow-hidden relative">
+              {/* Image with zoom on hover */}
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover rounded"
+                className="w-full h-full object-cover rounded transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
+
+              {/* Hover Icon Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="w-12 h-12 bg-[#E9004B] rounded-full flex items-center justify-center text-white">
+                  <Link size={18} />
+                </div>
+              </div>
             </div>
 
             {/* Description */}
             <div className="flex flex-col justify-between h-full w-full">
               <div>
                 <h3
-                  className="text-[16px] sm:text-[22px] text-black whitespace-nowrap overflow-hidden text-ellipsis"
+                  className="text-[16px] sm:text-[22px] w-fit duration-300  hover:text-[#E9004B] text-black whitespace-nowrap overflow-hidden text-ellipsis"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
                     fontWeight: 700,
@@ -155,7 +165,7 @@ function MenuCard() {
                 </h3>
 
                 <p
-                  className="text-[13px] sm:text-[15px] text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis"
+                  className="text-[13px] w-fit duration-300  hover:text-[#E9004B] sm:text-[15px] text-gray-900 whitespace-nowrap overflow-hidden text-ellipsis"
                   style={{ fontFamily: "'Quicksand', sans-serif" }}
                 >
                   {item.type}
@@ -176,7 +186,7 @@ function MenuCard() {
                   {item.discountPrice}
                 </span>
                 <button
-                  className="text-[13px] sm:text-[14px] border border-[#E9004B] text-[#E9004B] rounded-2xl px-3 py-1"
+                  className="text-[13px] sm:text-[14px] border duration-500  hover:bg-[#E9004B]  hover:text-white border-[#E9004B] text-[#E9004B] rounded-2xl px-3 py-1"
                   style={{
                     fontFamily: "'Quicksand', sans-serif",
                     fontWeight: 700,

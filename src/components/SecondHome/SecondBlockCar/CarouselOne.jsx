@@ -4,18 +4,54 @@ import Left from "./../Svgs/left";
 import Right from "../Svgs/Right";
 
 const foodItems = [
-  { id: 1, name: "Pasta", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pasta.png" },
-  { id: 2, name: "Breakfast", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png" },
-  { id: 3, name: "Pizza", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pizza.png" },
-  { id: 4, name: "Burger", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-burger.png" },
-  { id: 5, name: "Lunch", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-rice.png" },
-  { id: 6, name: "Dinner", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pizza.png" },
-  { id: 7, name: "FastFood", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png" },
-  { id: 8, name: "Rice", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-rice.png" },
-  { id: 9, name: "Chinese", img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png" },
+  {
+    id: 1,
+    name: "Pasta",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pasta.png",
+  },
+  {
+    id: 2,
+    name: "Breakfast",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png",
+  },
+  {
+    id: 3,
+    name: "Pizza",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pizza.png",
+  },
+  {
+    id: 4,
+    name: "Burger",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-burger.png",
+  },
+  {
+    id: 5,
+    name: "Lunch",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-rice.png",
+  },
+  {
+    id: 6,
+    name: "Dinner",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-pizza.png",
+  },
+  {
+    id: 7,
+    name: "FastFood",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png",
+  },
+  {
+    id: 8,
+    name: "Rice",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-rice.png",
+  },
+  {
+    id: 9,
+    name: "Chinese",
+    img: "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/catg-chinese.png",
+  },
 ];
 
-const ITEM_WIDTH = 332; // 312px + 20px gap
+const ITEM_WIDTH = 332;
 const VISIBLE_COUNT = 4;
 
 function CarouselOne() {
@@ -25,16 +61,16 @@ function CarouselOne() {
   const touchStartX = useRef(null);
 
   const fullList = [
-    ...foodItems.slice(-VISIBLE_COUNT), // Clone last few at start
+    ...foodItems.slice(-VISIBLE_COUNT), 
     ...foodItems,
-    ...foodItems.slice(0, VISIBLE_COUNT), // Clone first few at end
+    ...foodItems.slice(0, VISIBLE_COUNT), 
   ];
 
   const totalItems = fullList.length;
   const initialIndex = VISIBLE_COUNT;
 
   useEffect(() => {
-    setPosition(initialIndex); // Start from real first item
+    setPosition(initialIndex); 
   }, []);
 
   const slideTo = (newIndex) => {
@@ -126,7 +162,10 @@ function CarouselOne() {
           onTransitionEnd={handleTransitionEnd}
         >
           {fullList.map((item, idx) => (
-            <div className="carousel-item min-w-full sm:min-w-[312px]" key={`${item.id}-${idx}`}>
+            <div
+              className="carousel-item min-w-full sm:min-w-[312px]"
+              key={`${item.id}-${idx}`}
+            >
               <img src={item.img} alt={item.name} className="food-img" />
               <div className="mt-3">
                 <h3 className="text-center font-bold">

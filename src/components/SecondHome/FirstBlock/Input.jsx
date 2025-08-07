@@ -45,7 +45,6 @@ function Input() {
 
   return (
     <div className="flex items-center w-full sm:w-[627px] h-auto sm:h-[55px] border border-black rounded-md gap-2 sm:gap-9 px-3 py-2 sm:py-3">
-      
       {/* Custom Dropdown */}
       <div
         className="relative group w-8 sm:w-[180px] h-10 flex-shrink-0"

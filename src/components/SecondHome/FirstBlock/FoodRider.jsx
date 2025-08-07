@@ -7,7 +7,7 @@ const riderImages = [
   "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/brand-black-3.svg",
   "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/brand-black-4.svg",
   "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/brand-black-1.svg",
-  "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/brand-black-2.svg"
+  "https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/brand-black-2.svg",
 ];
 
 function FoodRider() {

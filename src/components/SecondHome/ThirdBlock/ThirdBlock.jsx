@@ -15,8 +15,8 @@ function ThirdBlock() {
         </div>
       </div>
       <div className="bg-[#E9004B] overflow-hidden">
-          <AppDetail />
-        </div>
+        <AppDetail />
+      </div>
     </div>
   );
 }

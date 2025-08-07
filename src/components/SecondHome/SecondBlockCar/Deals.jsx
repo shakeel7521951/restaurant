@@ -28,7 +28,7 @@ function Deals() {
           Super Delicious Deal
         </h2>
         <p
-           className={`text-[16px] mb-[15px] mx-auto max-w-xl fade-up fade-delay-p ${
+          className={`text-[16px] mb-[15px] mx-auto max-w-xl fade-up fade-delay-p ${
             isInView ? "in-view" : ""
           }`}
           style={{ fontFamily: "'Quicksand', sans-serif" }}
@@ -39,9 +39,11 @@ function Deals() {
       </div>
 
       {/* Grid: 4 columns on desktop, 2 on tablet, 1 on mobile */}
-      <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-up fade-delay-hadding ${
-            isInView ? "in-view" : ""
-          }`}>
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-up fade-delay-hadding ${
+          isInView ? "in-view" : ""
+        }`}
+      >
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}

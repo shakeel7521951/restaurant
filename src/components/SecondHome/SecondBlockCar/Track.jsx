@@ -7,7 +7,6 @@ import {
   ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
 
-
 function Track() {
   const [ref, isInView] = useInView();
   return (
@@ -38,7 +37,7 @@ function Track() {
 
       {/* Background Image Section */}
       <div className="w-full max-w-[1323px] h-auto sm:h-[337px] bg-no-repeat bg-cover relative mx-auto flex flex-col sm:flex-row items-center justify-center mt-10 space-y-20 sm:space-y-0 sm:bg-[url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/10/h1-Info-shape-1.png')]">
-  {/* Your content here */}
+        {/* All Blocks */}
         {/* Step 1 */}
         <div
           className={`w-full sm:pr-11 pb-4 sm:w-[315px] h-[235px] flex flex-col items-center justify-center hover-parent  fade-up fade-delay-hadding ${

@@ -18,7 +18,7 @@ function ProductCard({ image, category, title, description, price, discount }) {
           />
         </div>
 
-        {/* ✅ Discount Badge at bottom-left inside the image */}
+        {/*Discount Badge at bottom-left inside the image */}
         <div
           className="absolute bottom-0 left-0 text-[13px] bg-[#E9004B] text-white text-xs px-2 py-2 rounded-tr-2xl
 "
