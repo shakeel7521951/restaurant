@@ -1,0 +1,231 @@
+/* -------------------------------
+   Text Animation - Tilt & Scale
+---------------------------------- */
+@keyframes tiltScaleMotion {
+  0% {
+    transform: perspective(800px) rotateX(0deg);
+  }
+  20% {
+    transform: perspective(800px) rotateX(-25deg);
+  }
+  40% {
+    transform: perspective(800px) rotateX(25deg);
+  }
+  60% {
+    transform: perspective(800px) rotateX(-20deg);
+  }
+  80% {
+    transform: perspective(800px) rotateX(15deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0deg);
+  }
+}
+
+.animate-tilt-scale {
+  opacity: 0;
+  transform: scale(0.95) rotateX(10deg);
+  transition: all 0.6s ease;
+}
+
+.animate-tilt-scale.in-view {
+  animation: tiltScaleMotion 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1) rotateX(0deg);
+}
+
+
+/* -------------------------------
+   Image Animation - Diagonal Fly-In
+---------------------------------- */
+@keyframes flyInDiagonal {
+  0% {
+    transform: translate(-100px, 100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.animate-diagonal-in {
+  opacity: 0;
+}
+
+.animate-diagonal-in.in-view {
+  animation: flyInDiagonal 1.2s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+
+/* -------------------------------
+   Track Section - Fade Up Animation
+---------------------------------- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+}
+
+.fade-up.in-view {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.fade-delay-hadding.in-view {
+  animation-delay: 0.1s;
+}
+
+.fade-delay-p.in-view {
+  animation-delay: 0.2s;
+}
+
+
+/* -------------------------------
+   Circle Hover Zoom Animation
+---------------------------------- */
+@keyframes smooth-zoom {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50%, 0) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.hover-circle {
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: background-color 0.3s ease, color 0.5s ease;
+}
+
+.hover-parent:hover .hover-circle {
+  background-color: #E9004B;
+  color: white;
+  animation: smooth-zoom 1s ease-in-out;
+}
+
+.hover-text {
+  transition: color 0.5s ease;
+}
+
+.hover-text:hover {
+  color: #E9004B;
+}
+
+
+/* -------------------------------
+   Mega Deal Image - Bounce Zoom
+---------------------------------- */
+@keyframes bounceZoom {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bounce-zoom {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.3s ease;
+}
+
+.in-view {
+  animation: bounceZoom 1.2s ease-in-out;
+  opacity: 1;
+}
+
+
+/* -------------------------------
+   App Detail Animation - Lift Up
+---------------------------------- */
+@keyframes appDetailUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.app-detail {
+  transform: translateY(40px);
+}
+
+.app-detail.in-view {
+  animation: appDetailUp 1s ease-out forwards;
+}
+
+
+/* -------------------------------
+   Background Image Classes
+---------------------------------- */
+.bg-mega-deal {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/11/h2-banner-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-main-block {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/why-choose1-min.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-track {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/10/How-to-order_.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-clientAbout {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2025/01/h4-clients-1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-apple {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/app-store.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-googlePlay {
+  background-image: url('https://www.radiustheme.com/demo/wordpress/themes/foodymat/wp-content/uploads/2024/12/play-store.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

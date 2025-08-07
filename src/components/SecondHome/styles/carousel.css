@@ -1,0 +1,146 @@
+/* === CAROUSEL STYLES === */
+.carousel-container {
+  width: 1320px;
+  height: 236.6px;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-wrapper {
+  margin: 10px;
+  width: 1320px;
+  height: 236.6px;
+  display: flex;
+  gap: 18px;
+  padding: 0 10px;
+  transition: transform 1.2s ease-in-out;
+}
+
+.carousel-item {
+  position: relative;
+  min-width: 312px;
+  height: 236.6px;
+  background-color: white;
+  padding: 26px 18px 33px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  overflow: hidden;
+}
+
+.carousel-item:hover {
+  border-color: #E9004B;
+}
+
+.next-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel-slide {
+  transform: translateX(40px);
+  transition: transform 1s ease;
+  opacity: 1;
+}
+
+.carousel-slide.active {
+  transform: translateX(0);
+}
+
+/* === IMAGE & TEXT INSIDE CARDS === */
+.food-img {
+  width: 135px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.food-img:hover {
+  transform: scale(1.1);
+}
+
+.food-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* === SHAPES AND BORDERS === */
+.custom-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 100%, 0 100%);
+}
+
+.thin-left-border:hover {
+  border-left: 0.1px solid #eda1b4;
+}
+
+.thin-right-border:hover {
+  border-right: 1px solid #eda1b4;
+}
+
+/* === SLIDE WRAPPER ANIMATION === */
+.slide-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-wrapper.no-transition {
+  transition: none !important;
+}
+
+.slide-wrapper.left,
+.slide-wrapper.right {
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-card {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+/* === FADE IN ANIMATION === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.5s ease-in-out both;
+}
+
+/* === Food Rider ANIMATION === */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
