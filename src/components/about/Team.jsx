@@ -63,7 +63,7 @@ const Team = () => {
                                     <div className="bg-[#0000004f] absolute h-full w-full top-0 left-0"></div>
 
                                     {/* Social Icons */}
-                                    <div className="flex flex-col absolute z-50 bg-white rounded-l-xl justify-center gap-3 p-3 top-1/2 right-0 transform -translate-y-1/2 origin-right -rotate-y-90 group-hover:rotate-y-0 transition-transform duration-500 perspective-1000">
+                                    <div className="flex flex-col absolute z-5 bg-white rounded-l-xl justify-center gap-3 p-3 top-1/2 right-0 transform -translate-y-1/2 origin-right -rotate-y-90 group-hover:rotate-y-0 transition-transform duration-500 perspective-1000">
                                         {chef.socials.map((social, idx) => {
                                             const Icon = social.icon;
                                             return (
@@ -81,7 +81,7 @@ const Team = () => {
                                 </div>
 
                                 {/* Name & Role */}
-                                <div className="text-center bg-white shadow rounded-xl w-[70%] z-100 mx-auto py-4 absolute -bottom-10 left-1/2 transform -translate-x-1/2">
+                                <div className="text-center bg-white shadow z-2 rounded-xl w-[70%]  mx-auto py-4 absolute -bottom-10 left-1/2 transform -translate-x-1/2">
                                     <h3 className="text-xl font-bold tracking-wide">{chef.name}</h3>
                                     <p className="text-[#e63946] text-lg">{chef.role}</p>
                                 </div>

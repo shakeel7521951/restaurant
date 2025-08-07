@@ -19,6 +19,7 @@ import BlogDetail from "./Blogs/BlogDetail";
 import AddToCart from "./pages/AddToCart";
 import About from "./pages/About";
 import Team from "./pages/Team";
+import ForgotPasw from "./components/common/ForgotPasw";
 
 
 
@@ -39,8 +40,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/contact", element: <Contact /> },
       { path: "/menu", element: <Menu /> },
-      { path: "/login", element: <Login /> },
-      { path: "/signup", element: <Sign_Up /> },
+      // { path: "/login", element: <Login /> },
+      
       
       {path:"/superdetailpage",element:<SuperDpg/>},
       { path: "/reservation", element: <Reservation /> },
@@ -51,11 +52,16 @@ const router = createBrowserRouter([
       { path: "/blogDetail/:id", element: <BlogDetail /> },
       { path: "/cart", element: <AddToCart /> },
       {path:"/about",element:<About/>},
-      {path:"/team",element:<Team/>}
+      {path:"/team",element:<Team/>},
+      {path:"*",element:<Not_Found/>}
      
     ],
+    
 
   },
+  { path: "/login", element: <Login /> },
+  { path: "/signup", element: <Sign_Up /> },
+  { path: "/forgotpassword", element: <ForgotPasw/> },
 ]);
 function App() {
   return <RouterProvider router={router} />;

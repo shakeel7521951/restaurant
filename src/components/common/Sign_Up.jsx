@@ -43,30 +43,15 @@ const Sign_Up = () => {
   };
 
   return (
-<div>
+<div className="bg-gradient-to-br p-5 from-rose-500 flex justify-center items-center py-10 via-rose-300 to-rose-100 w-full min-h-screen">
 
-    {/* header section */}
-         <section className="relative w-full h-[300px] md:h-[350px]">
-              <img
-                src="./menu/bread_banner-scaled.jpg"
-                alt="Bread on a wooden table - Menu banner"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
-                <h1 className="text-3xl md:text-6xl font-bold mb-2">My account</h1>
-                <nav className="text-xl">
-                  <Link to="/" className="hover:underline hover:text-[#E9004B] transition-colors">Home</Link>
-                  <span className="mx-2">/</span>
-                  <span className="text-[#E9004B] font-medium">My account</span>
-                </nav>
-              </div>
-            </section>
-    <div className="mx-auto w-full max-w-4xl mt-10 mb-10 sm:mt-20 sm:mb-20 bg-white rounded-3xl overflow-hidden px-6 py-10 sm:p-10 shadow-lg border border-gray-100">
+   
+    <div className=" w-full max-w-lg  bg-white rounded-3xl overflow-hidden px-6 py-10 sm:p-10 shadow-lg border border-gray-100">
       <h2 className="text-2xl sm:text-4xl font-bold text-center text-gray-800 mb-8">
         Create an Account
       </h2>
 
-      <form className="space-y-6" onSubmit={handleSignup}>
+      <form className="space-y-2 sm:space-y-3" onSubmit={handleSignup}>
         {/* Full Name */}
         <div className="space-y-1">
           <label htmlFor="fullname" className="block text-base sm:text-lg font-medium text-gray-700">
@@ -172,6 +157,7 @@ const Sign_Up = () => {
           </div>
         </div>
 
+              <div><Link to="/login" className="text-sm font-semibold underline ">Already have an Account </Link></div>
         {/* Terms and Conditions */}
         <div className="flex items-start gap-2">
           <input 
